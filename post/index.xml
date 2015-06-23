@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Dudu&#39;s page</title>
+    <link>http://ydubreuil.github.io/post/</link>
+    <description>Recent content in Posts on Dudu&#39;s page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Jun 2015 13:05:35 +0200</lastBuildDate>
+    <atom:link href="http://ydubreuil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>welcome</title>
+      <link>http://ydubreuil.github.io/post/welcome/</link>
+      <pubDate>Tue, 23 Jun 2015 13:05:35 +0200</pubDate>
+      
+      <guid>http://ydubreuil.github.io/post/welcome/</guid>
+      <description>&lt;p&gt;A website to dump my brain&amp;hellip; mostly! And to experiment with &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;,
+a static website generator.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
