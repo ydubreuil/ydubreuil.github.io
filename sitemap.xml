@@ -8,7 +8,7 @@
   </url>
   
   <url>
-    <loc>http://ydubreuil.github.io/post/welcome/</loc>
+    <loc>http://ydubreuil.github.io/post/2015/06/welcome/</loc>
     <lastmod>2015-06-23T13:05:35+02:00</lastmod>
   </url>
   
@@ -18,8 +18,27 @@
   </url>
   
   <url>
-    <loc>http://ydubreuil.github.io/talks/</loc>
-    <lastmod>2015-06-23T12:00:00+02:00</lastmod>
+    <loc>http://ydubreuil.github.io/talks/2014/10/introduction-%C3%A0-openstack/</loc>
+    <lastmod>2014-10-22T12:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ydubreuil.github.io/talks/2014/05/bash-et-moi/</loc>
+    <lastmod>2014-05-22T12:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ydubreuil.github.io/talks/2014/05/tools-in-action-orika/</loc>
+    <lastmod>2014-05-22T12:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ydubreuil.github.io/talks/2013/06/un-paas-pour-lintegration-continue/</loc>
+    <lastmod>2013-06-22T12:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ydubreuil.github.io/projects/gcode-compiler/</loc>
   </url>
   
 </urlset>

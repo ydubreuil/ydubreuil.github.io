@@ -1,38 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dudu&#39;s page</title>
-    <link>http://ydubreuil.github.io/</link>
-    <description>Recent content on Dudu&#39;s page</description>
+    <title>Talks on Dudu&#39;s page</title>
+    <link>http://ydubreuil.github.io/talks/</link>
+    <description>Recent content in Talks on Dudu&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2015 13:05:35 +0200</lastBuildDate>
-    <atom:link href="http://ydubreuil.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>welcome</title>
-      <link>http://ydubreuil.github.io/post/2015/06/welcome/</link>
-      <pubDate>Tue, 23 Jun 2015 13:05:35 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/post/2015/06/welcome/</guid>
-      <description>&lt;p&gt;A website to dump my brain&amp;hellip; mostly! And to experiment with &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;,
-a static website generator.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://ydubreuil.github.io/about/</link>
-      <pubDate>Tue, 23 Jun 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/about/</guid>
-      <description>&lt;p&gt;I am a support engineer at &lt;a href=&#34;http://www.cloudbees.com&#34;&gt;CloudBees&lt;/a&gt;, helping
-customers to get the best of &lt;a href=&#34;http://www.jenkins-ci.org&#34;&gt;Jenkins&lt;/a&gt;, a Open-Source
-continuous integration tool.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m volunteering at BreizhCamp and BreizhJUG.&lt;/p&gt;
-</description>
-    </item>
+    <lastBuildDate>Wed, 22 Oct 2014 12:00:00 +0200</lastBuildDate>
+    <atom:link href="http://ydubreuil.github.io/talks/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introduction à Openstack</title>
@@ -96,15 +71,6 @@ continuous integration tool.&lt;/p&gt;
 
 &lt;p&gt;Au &lt;a href=&#34;http://www.breizhcamp.org&#34;&gt;BreizhCamp&lt;/a&gt;&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://ydubreuil.github.io/projects/gcode-compiler/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ydubreuil.github.io/projects/gcode-compiler/</guid>
-      <description></description>
     </item>
     
   </channel>

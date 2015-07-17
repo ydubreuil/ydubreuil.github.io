@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openstack on Dudu&#39;s page</title>
+    <link>http://ydubreuil.github.io/tags/openstack/</link>
+    <description>Recent content in Openstack on Dudu&#39;s page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Oct 2014 12:00:00 +0200</lastBuildDate>
+    <atom:link href="http://ydubreuil.github.io/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introduction à Openstack</title>
+      <link>http://ydubreuil.github.io/talks/2014/10/introduction-%C3%A0-openstack/</link>
+      <pubDate>Wed, 22 Oct 2014 12:00:00 +0200</pubDate>
+      
+      <guid>http://ydubreuil.github.io/talks/2014/10/introduction-%C3%A0-openstack/</guid>
+      <description>&lt;p&gt;Introduction à Openstack :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ydubreuil/breizhjug-openstack/&#34;&gt;slides&lt;/a&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Au &lt;a href=&#34;http://www.breizhjug.org&#34;&gt;BreizhJUG&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Un PaaS pour l&#39;integration continue</title>
+      <link>http://ydubreuil.github.io/talks/2013/06/un-paas-pour-lintegration-continue/</link>
+      <pubDate>Sat, 22 Jun 2013 12:00:00 +0200</pubDate>
+      
+      <guid>http://ydubreuil.github.io/talks/2013/06/un-paas-pour-lintegration-continue/</guid>
+      <description>&lt;p&gt;Retour d&amp;rsquo;expérience sur la construction d&amp;rsquo;un PaaS pour Jenkins :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ydubreuil/??&#34;&gt;slides&lt;/a&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Au &lt;a href=&#34;http://www.breizhcamp.org&#34;&gt;BreizhCamp&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
