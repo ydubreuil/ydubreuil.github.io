@@ -6,8 +6,164 @@
     <description>Recent content in Posts on Dudu&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2015 13:05:35 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2015 11:55:00 +0200</lastBuildDate>
     <atom:link href="http://ydubreuil.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Configure the YukiKey on ArchLinux</title>
+      <link>http://ydubreuil.github.io/post/2015/11/configure-the-yukikey-on-archlinux/</link>
+      <pubDate>Wed, 11 Nov 2015 11:55:00 +0200</pubDate>
+      
+      <guid>http://ydubreuil.github.io/post/2015/11/configure-the-yukikey-on-archlinux/</guid>
+      <description>
+
+&lt;h1 id=&#34;configure-the-yukikey-on-archlinux:957f5d9840cc73d00f677ed231d81d9c&#34;&gt;Configure the YukiKey on ArchLinux&lt;/h1&gt;
+
+&lt;p&gt;A few months ago, I bought a &lt;a href=&#34;https://www.yubico.com/products/yubikey-hardware/&#34;&gt;YubiKey Neo&lt;/a&gt; to secure my PGP key and my GMail account with 2FA.
+I also use it to authenticate SSH access (for Github commit mostly).
+It means no more private keys living on my hard drive!&lt;/p&gt;
+
+&lt;p&gt;There are many good resources available out there explaining how everything works:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.josefsson.org/2014/06/23/offline-gnupg-master-key-and-subkeys-on-yubikey-neo-smartcard/&#34;&gt;http://blog.josefsson.org/2014/06/23/offline-gnupg-master-key-and-subkeys-on-yubikey-neo-smartcard/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.esev.com/blog/post/2015-01-pgp-ssh-key-on-yubikey-neo/&#34;&gt;https://www.esev.com/blog/post/2015-01-pgp-ssh-key-on-yubikey-neo/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stafwag.github.io/blog/blog/2015/06/16/using-yubikey-neo-as-gpg-smartcard-for-ssh-authentication/&#34;&gt;http://stafwag.github.io/blog/blog/2015/06/16/using-yubikey-neo-as-gpg-smartcard-for-ssh-authentication/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/GnuPG&#34;&gt;https://wiki.archlinux.org/index.php/GnuPG&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This post is just a quick and dirty procedure to enable YubiKey.&lt;/p&gt;
+
+&lt;h2 id=&#34;system-configuration:957f5d9840cc73d00f677ed231d81d9c&#34;&gt;System configuration&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create &lt;code&gt;/etc/udev/rules.d/70-u2f.rules&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;# this udev file should be used with udev 188 and newer
+ACTION!=&amp;quot;add|change&amp;quot;, GOTO=&amp;quot;u2f_end&amp;quot;
+
+KERNEL==&amp;quot;hidraw*&amp;quot;, SUBSYSTEM==&amp;quot;hidraw&amp;quot;, ATTRS{idVendor}==&amp;quot;1050&amp;quot;, ATTRS{idProduct}==&amp;quot;0113|0114|0115|0116|0120|0402|0403|0406|0407|0410&amp;quot;, TAG+=&amp;quot;uaccess&amp;quot;
+
+LABEL=&amp;quot;u2f_end&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install required packages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo pacman -S libusb-compat pcsclite ccid
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Activate PCSC-lite daemon&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo systemctl enable pcscd.socket
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reload udev and start PCSC-lite daemon / Reboot if your prefer to be sure everything&amp;rsquo;s okay&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo udevadm control --reload
+$ sudo systemctl start pcscd.socket
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Check that everything&amp;rsquo;s set up correctly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ gpg --card-status
+
+Application ID ...: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Version ..........: 2.0
+Manufacturer .....: Yubico
+Serial number ....: XXXXXXXXXXXXXX
+Name of cardholder: Yoann Dubreuil
+Language prefs ...: en
+Sex ..............: unspecified
+URL of public key : https://pgp.mit.edu/pks/lookup?op=vindex&amp;amp;search=0x689E687C72422C96
+Login data .......: dudu
+Signature PIN ....: forced
+Key attributes ...: rsa2048 rsa2048 rsa2048
+Max. PIN lengths .: 127 127 127
+PIN retry counter : 3 3 3
+Signature counter : 2
+Signature key ....: 04F4 C62E 2C07 A00E 15DF  46FE 1163 4204 03E3 2C98
+      created ....: 2015-07-20 21:29:58
+Encryption key....: 3485 8FB6 DA6A 9918 A1C2  2D3D 3C8E 0E34 5EB3 66DF
+      created ....: 2015-07-20 21:30:31
+Authentication key: B0B8 47E8 1954 C25B F2E7  9019 74F6 4468 C691 150B
+      created ....: 2015-07-20 21:31:06
+General key info..: sub  rsa2048/03E32C98 2015-07-20 Yoann Dubreuil &amp;lt;XXXXXXXXXXXX&amp;gt;
+sec#  rsa4096/72422C96  created: 2015-07-20  expires: 2020-07-18
+ssb&amp;gt;  rsa2048/03E32C98  created: 2015-07-20  expires: 2017-07-19
+                        card-no: 0006 XXXXXXXX
+ssb&amp;gt;  rsa2048/5EB366DF  created: 2015-07-20  expires: 2017-07-19
+                        card-no: 0006 XXXXXXXX
+ssb&amp;gt;  rsa2048/C691150B  created: 2015-07-20  expires: 2017-07-19
+                        card-no: 0006 XXXXXXXX
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;configure-gpg-agent-for-ssh-authentication:957f5d9840cc73d00f677ed231d81d9c&#34;&gt;Configure GPG agent for SSH authentication&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If you use Gnome Keyring, disable it first:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/gnome-keyring-ssh.desktop
+$ sed -i &#39;s/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/&#39; ~/.config/autostart/gnome-keyring-ssh.desktop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add this line in &lt;code&gt;~/.gnupg/gpg-agent.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;enable-ssh-support
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Generate SSH public key from GPG key. SSH doesn&amp;rsquo;t know what to do with GPG public key, so we need to convert the GPG public key to SSH format with&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ gpgkey2ssh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Define &lt;code&gt;SSH_AUTH_SOCK&lt;/code&gt; for your Unix session by adding this line in &lt;code&gt;.pam_environment&lt;/code&gt; (&lt;a href=&#34;https://github.com/ydubreuil/dotfiles/blob/master/pam_environment#L16&#34;&gt;example&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;SSH_AUTH_SOCK DEFAULT=&amp;quot;/home/UNIX_USER/.gnupg/S.gpg-agent.ssh&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: Use a &lt;code&gt;TAB&lt;/code&gt; character between &lt;code&gt;SSH_AUTH_SOCK&lt;/code&gt; and &lt;code&gt;DEFAULT&lt;/code&gt;, not a space character.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Generating a QR-Code for home Wifi access</title>
+      <link>http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/</link>
+      <pubDate>Tue, 28 Jul 2015 17:55:00 +0200</pubDate>
+      
+      <guid>http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/</guid>
+      <description>
+
+&lt;h1 id=&#34;generating-a-qr-code-for-home-wifi:45fb7e77a381e2bb03cd867c84afe78e&#34;&gt;Generating a QR-code for home Wifi&lt;/h1&gt;
+
+&lt;p&gt;On ArchLinux, install a QR code generator library&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo pacman -S python2-qrcode
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then generates with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ qr &#39;WIFI:S:&amp;lt;SSID&amp;gt;;T:&amp;lt;WPA|WEP|&amp;gt;;P:&amp;lt;password&amp;gt;;;&#39; &amp;gt; qr-code.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;They should be readable with any &lt;a href=&#34;https://github.com/zxing/zxing&#34;&gt;zxing&lt;/a&gt; based reader.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>welcome</title>

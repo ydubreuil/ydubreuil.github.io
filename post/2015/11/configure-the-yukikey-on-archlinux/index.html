@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Dudu&#39;s page  </title>
+  <title> Configure the YukiKey on ArchLinux  &middot; Dudu&#39;s page  </title>
 
   
   <link rel="stylesheet" href="http://ydubreuil.github.io/css/poole.css">
@@ -22,7 +22,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
 
   
-  <link href="http://ydubreuil.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Dudu&#39;s page" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Dudu&#39;s page" />
 </head>
 
 <body>
@@ -61,19 +61,10 @@
 
 
     <div class="content container">
-<div class="posts">
-
+<div class="post">
+  <h1>Configure the YukiKey on ArchLinux</h1>
+  <span class="post-date">Wed, Nov 11, 2015</span>
       
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://ydubreuil.github.io/post/2015/11/configure-the-yukikey-on-archlinux/">
-        Configure the YukiKey on ArchLinux
-      </a>
-    </h1>
-
-    <span class="post-date">Wed, Nov 11, 2015</span>
-
-    
 
 <h1 id="configure-the-yukikey-on-archlinux:957f5d9840cc73d00f677ed231d81d9c">Configure the YukiKey on ArchLinux</h1>
 
@@ -197,49 +188,6 @@ $ sed -i 's/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/' ~/.config/autos
 
 <p>Note: Use a <code>TAB</code> character between <code>SSH_AUTH_SOCK</code> and <code>DEFAULT</code>, not a space character.</p>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/">
-        Generating a QR-Code for home Wifi access
-      </a>
-    </h1>
-
-    <span class="post-date">Tue, Jul 28, 2015</span>
-
-    
-
-<h1 id="generating-a-qr-code-for-home-wifi:45fb7e77a381e2bb03cd867c84afe78e">Generating a QR-code for home Wifi</h1>
-
-<p>On ArchLinux, install a QR code generator library</p>
-
-<pre><code class="language-shell">$ sudo pacman -S python2-qrcode
-</code></pre>
-
-<p>And then generates with</p>
-
-<pre><code class="language-shell">$ qr 'WIFI:S:&lt;SSID&gt;;T:&lt;WPA|WEP|&gt;;P:&lt;password&gt;;;' &gt; qr-code.png
-</code></pre>
-
-<p>They should be readable with any <a href="https://github.com/zxing/zxing">zxing</a> based reader.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://ydubreuil.github.io/post/2015/06/welcome/">
-        welcome
-      </a>
-    </h1>
-
-    <span class="post-date">Tue, Jun 23, 2015</span>
-
-    <p>A website to dump my brain&hellip; mostly! And to experiment with <a href="http://gohugo.io">Hugo</a>,
-a static website generator.</p>
-
-  </div>
-  
 </div>
 </div>
 

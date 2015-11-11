@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wifi on Dudu&#39;s page</title>
+    <link>http://ydubreuil.github.io/tags/wifi/</link>
+    <description>Recent content in Wifi on Dudu&#39;s page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jul 2015 17:55:00 +0200</lastBuildDate>
+    <atom:link href="http://ydubreuil.github.io/tags/wifi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Generating a QR-Code for home Wifi access</title>
+      <link>http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/</link>
+      <pubDate>Tue, 28 Jul 2015 17:55:00 +0200</pubDate>
+      
+      <guid>http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/</guid>
+      <description>
+
+&lt;h1 id=&#34;generating-a-qr-code-for-home-wifi:45fb7e77a381e2bb03cd867c84afe78e&#34;&gt;Generating a QR-code for home Wifi&lt;/h1&gt;
+
+&lt;p&gt;On ArchLinux, install a QR code generator library&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo pacman -S python2-qrcode
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then generates with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ qr &#39;WIFI:S:&amp;lt;SSID&amp;gt;;T:&amp;lt;WPA|WEP|&amp;gt;;P:&amp;lt;password&amp;gt;;;&#39; &amp;gt; qr-code.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;They should be readable with any &lt;a href=&#34;https://github.com/zxing/zxing&#34;&gt;zxing&lt;/a&gt; based reader.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

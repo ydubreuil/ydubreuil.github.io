@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dudu&#39;s page</title>
-    <link>http://ydubreuil.github.io/</link>
-    <description>Recent content on Dudu&#39;s page</description>
+    <title>Gpg on Dudu&#39;s page</title>
+    <link>http://ydubreuil.github.io/tags/gpg/</link>
+    <description>Recent content in Gpg on Dudu&#39;s page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Nov 2015 11:55:00 +0200</lastBuildDate>
-    <atom:link href="http://ydubreuil.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ydubreuil.github.io/tags/gpg/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Configure the YukiKey on ArchLinux</title>
@@ -139,128 +139,6 @@ $ sed -i &#39;s/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/&#39; ~/.conf
 
 &lt;p&gt;Note: Use a &lt;code&gt;TAB&lt;/code&gt; character between &lt;code&gt;SSH_AUTH_SOCK&lt;/code&gt; and &lt;code&gt;DEFAULT&lt;/code&gt;, not a space character.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Generating a QR-Code for home Wifi access</title>
-      <link>http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/</link>
-      <pubDate>Tue, 28 Jul 2015 17:55:00 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/</guid>
-      <description>
-
-&lt;h1 id=&#34;generating-a-qr-code-for-home-wifi:45fb7e77a381e2bb03cd867c84afe78e&#34;&gt;Generating a QR-code for home Wifi&lt;/h1&gt;
-
-&lt;p&gt;On ArchLinux, install a QR code generator library&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo pacman -S python2-qrcode
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And then generates with&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ qr &#39;WIFI:S:&amp;lt;SSID&amp;gt;;T:&amp;lt;WPA|WEP|&amp;gt;;P:&amp;lt;password&amp;gt;;;&#39; &amp;gt; qr-code.png
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;They should be readable with any &lt;a href=&#34;https://github.com/zxing/zxing&#34;&gt;zxing&lt;/a&gt; based reader.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>welcome</title>
-      <link>http://ydubreuil.github.io/post/2015/06/welcome/</link>
-      <pubDate>Tue, 23 Jun 2015 13:05:35 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/post/2015/06/welcome/</guid>
-      <description>&lt;p&gt;A website to dump my brain&amp;hellip; mostly! And to experiment with &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt;,
-a static website generator.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://ydubreuil.github.io/about/</link>
-      <pubDate>Tue, 23 Jun 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/about/</guid>
-      <description>&lt;p&gt;I am a support engineer at &lt;a href=&#34;http://www.cloudbees.com&#34;&gt;CloudBees&lt;/a&gt;, helping customers to get the best of &lt;a href=&#34;http://www.jenkins-ci.org&#34;&gt;Jenkins&lt;/a&gt;, the leading Open-Source continuous deployment server.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m volunteering at &lt;a href=&#34;http://www.breizhcamp.org&#34;&gt;BreizhCamp&lt;/a&gt; and &lt;a href=&#34;http://www.breizhjug.org&#34;&gt;BreizhJUG&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ydubreuil.github.io/files/pubkey.asc&#34;&gt;GPG key&lt;/a&gt; and the link on &lt;a href=&#34;https://pgp.mit.edu/pks/lookup?op=vindex&amp;amp;search=0x689E687C72422C96&#34;&gt;MIT keyserver&lt;/a&gt;. Key 03E32C98 is for encryption.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Introduction à Openstack</title>
-      <link>http://ydubreuil.github.io/talks/2014/10/introduction-a-openstack/</link>
-      <pubDate>Wed, 22 Oct 2014 12:00:00 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/talks/2014/10/introduction-a-openstack/</guid>
-      <description>&lt;p&gt;Introduction à Openstack :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ydubreuil/breizhjug-openstack/&#34;&gt;slides&lt;/a&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Au &lt;a href=&#34;http://www.breizhjug.org&#34;&gt;BreizhJUG&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Bash et moi</title>
-      <link>http://ydubreuil.github.io/talks/2014/05/bash-et-moi/</link>
-      <pubDate>Thu, 22 May 2014 12:00:00 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/talks/2014/05/bash-et-moi/</guid>
-      <description>&lt;p&gt;Introduction à la ligne de commande Bash :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://ydubreuil.github.io/breizhcamp-bashetmoi/&#34;&gt;slides&lt;/a&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Au &lt;a href=&#34;http://www.breizhcamp.org&#34;&gt;BreizhCamp&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Tools in Action Orika</title>
-      <link>http://ydubreuil.github.io/talks/2014/05/tools-in-action-orika/</link>
-      <pubDate>Thu, 22 May 2014 12:00:00 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/talks/2014/05/tools-in-action-orika/</guid>
-      <description>&lt;p&gt;Introduction au framework Orika :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://ydubreuil.github.io/breizhcamp-orika/&#34;&gt;slides&lt;/a&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Au &lt;a href=&#34;http://www.breizhcamp.org&#34;&gt;BreizhCamp&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Un PaaS pour l&#39;integration continue</title>
-      <link>http://ydubreuil.github.io/talks/2013/06/un-paas-pour-lintegration-continue/</link>
-      <pubDate>Sat, 22 Jun 2013 12:00:00 +0200</pubDate>
-      
-      <guid>http://ydubreuil.github.io/talks/2013/06/un-paas-pour-lintegration-continue/</guid>
-      <description>&lt;p&gt;Retour d&amp;rsquo;expérience sur la construction d&amp;rsquo;un PaaS pour Jenkins :&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ydubreuil/??&#34;&gt;slides&lt;/a&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Au &lt;a href=&#34;http://www.breizhcamp.org&#34;&gt;BreizhCamp&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://ydubreuil.github.io/projects/gcode-compiler/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ydubreuil.github.io/projects/gcode-compiler/</guid>
-      <description></description>
     </item>
     
   </channel>
