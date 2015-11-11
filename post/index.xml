@@ -115,17 +115,28 @@ $ sed -i &#39;s/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/&#39; ~/.conf
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Add this line in &lt;code&gt;~/.gnupg/gpg-agent.conf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create &lt;code&gt;~/.config/systemd/user/gpg-agent.service&lt;/code&gt; to start GPG-agent on login with &lt;a href=&#34;https://wiki.archlinux.org/index.php/Systemd/User&#34;&gt;Systemd/User&lt;/a&gt; facilities&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;enable-ssh-support
+&lt;pre&gt;&lt;code&gt;[Unit]
+Description=GnuPG private key agent
+IgnoreOnIsolate=true
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/gpg-agent --daemon --enable-ssh-support --homedir=%h/.gnupg
+ExecStop=/usr/bin/pkill gpg-agent
+Restart=on-abort
+
+[Install]
+WantedBy=MyTarget.target
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Generate SSH public key from GPG key. SSH doesn&amp;rsquo;t know what to do with GPG public key, so we need to convert the GPG public key to SSH format with&lt;/li&gt;
+&lt;li&gt;Enable &lt;code&gt;gpg-agent.service&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ gpgkey2ssh
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ systemctl --user enable gpg-agent.service
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
@@ -136,6 +147,15 @@ $ sed -i &#39;s/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/&#39; ~/.conf
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Note: Use a &lt;code&gt;TAB&lt;/code&gt; character between &lt;code&gt;SSH_AUTH_SOCK&lt;/code&gt; and &lt;code&gt;DEFAULT&lt;/code&gt;, not a space character.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Logout / Login again to update your session&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Generate SSH public key from GPG key. SSH doesn&amp;rsquo;t know what to do with GPG public key, so we need to convert the GPG public key to SSH format with&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ gpgkey2ssh &amp;lt;KEY_ID&amp;gt; &amp;gt; ~/.ssh/gpgkey.pub
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -160,17 +160,28 @@ $ sed -i 's/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/' ~/.config/autos
 </code></pre>
 
 <ul>
-<li>Add this line in <code>~/.gnupg/gpg-agent.conf</code></li>
+<li>Create <code>~/.config/systemd/user/gpg-agent.service</code> to start GPG-agent on login with <a href="https://wiki.archlinux.org/index.php/Systemd/User">Systemd/User</a> facilities</li>
 </ul>
 
-<pre><code>enable-ssh-support
+<pre><code>[Unit]
+Description=GnuPG private key agent
+IgnoreOnIsolate=true
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/gpg-agent --daemon --enable-ssh-support --homedir=%h/.gnupg
+ExecStop=/usr/bin/pkill gpg-agent
+Restart=on-abort
+
+[Install]
+WantedBy=MyTarget.target
 </code></pre>
 
 <ul>
-<li>Generate SSH public key from GPG key. SSH doesn&rsquo;t know what to do with GPG public key, so we need to convert the GPG public key to SSH format with</li>
+<li>Enable <code>gpg-agent.service</code></li>
 </ul>
 
-<pre><code class="language-shell">$ gpgkey2ssh
+<pre><code class="language-shell">$ systemctl --user enable gpg-agent.service
 </code></pre>
 
 <ul>
@@ -181,6 +192,15 @@ $ sed -i 's/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/' ~/.config/autos
 </code></pre>
 
 <p>Note: Use a <code>TAB</code> character between <code>SSH_AUTH_SOCK</code> and <code>DEFAULT</code>, not a space character.</p>
+
+<ul>
+<li><p>Logout / Login again to update your session</p></li>
+
+<li><p>Generate SSH public key from GPG key. SSH doesn&rsquo;t know what to do with GPG public key, so we need to convert the GPG public key to SSH format with</p></li>
+</ul>
+
+<pre><code class="language-shell">$ gpgkey2ssh &lt;KEY_ID&gt; &gt; ~/.ssh/gpgkey.pub
+</code></pre>
 
 </div>
 </div>
