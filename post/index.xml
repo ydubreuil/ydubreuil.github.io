@@ -17,8 +17,6 @@
       <guid>http://ydubreuil.github.io/post/2015/11/configure-the-yukikey-on-archlinux/</guid>
       <description>
 
-&lt;h1 id=&#34;configure-the-yukikey-on-archlinux:957f5d9840cc73d00f677ed231d81d9c&#34;&gt;Configure the YukiKey on ArchLinux&lt;/h1&gt;
-
 &lt;p&gt;A few months ago, I bought a &lt;a href=&#34;https://www.yubico.com/products/yubikey-hardware/&#34;&gt;YubiKey Neo&lt;/a&gt; to secure my PGP key and my GMail account with 2FA.
 I also use it to authenticate SSH access (for Github commit mostly).
 It means no more private keys living on my hard drive!&lt;/p&gt;
@@ -147,11 +145,7 @@ $ sed -i &#39;s/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/&#39; ~/.conf
       <pubDate>Tue, 28 Jul 2015 17:55:00 +0200</pubDate>
       
       <guid>http://ydubreuil.github.io/post/2015/07/generating-a-qr-code-for-home-wifi-access/</guid>
-      <description>
-
-&lt;h1 id=&#34;generating-a-qr-code-for-home-wifi:45fb7e77a381e2bb03cd867c84afe78e&#34;&gt;Generating a QR-code for home Wifi&lt;/h1&gt;
-
-&lt;p&gt;On ArchLinux, install a QR code generator library&lt;/p&gt;
+      <description>&lt;p&gt;On ArchLinux, install a QR code generator library&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo pacman -S python2-qrcode
 &lt;/code&gt;&lt;/pre&gt;
