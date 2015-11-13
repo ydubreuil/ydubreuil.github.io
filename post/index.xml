@@ -111,7 +111,7 @@ ssb&amp;gt;  rsa2048/C691150B  created: 2015-07-20  expires: 2017-07-19
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/gnome-keyring-ssh.desktop
-$ sed -i &#39;s/X-GNOME-AutoRestart=true/X-GNOME-AutoRestart=false/&#39; ~/.config/autostart/gnome-keyring-ssh.desktop
+$ cat &#39;X-GNOME-Autostart-enabled=false&#39; &amp;gt;&amp;gt; ~/.config/autostart/gnome-keyring-ssh.desktop
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
@@ -124,12 +124,13 @@ IgnoreOnIsolate=true
 
 [Service]
 Type=forking
+ExecStartPre=-/usr/bin/pkill gpg-agent
 ExecStart=/usr/bin/gpg-agent --daemon --enable-ssh-support --homedir=%h/.gnupg
 ExecStop=/usr/bin/pkill gpg-agent
 Restart=on-abort
 
 [Install]
-WantedBy=MyTarget.target
+WantedBy=default.target
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
